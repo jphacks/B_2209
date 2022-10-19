@@ -1,3 +1,9 @@
+const Home = () => {
+  return <h1>This is index page!</h1>;
+};
+
+export default Home;
+
 // import Head from 'next/head';
 // import Image from 'next/image';
 // import styles from '../styles/Home.module.css';
@@ -66,15 +72,3 @@
 //     </div>
 //   );
 // }
-
-import { Button } from '@mui/material';
-
-const Home = () => {
-  return (
-    <>
-      <Button variant="contained">Hello World</Button>
-    </>
-  );
-};
-
-export default Home;
