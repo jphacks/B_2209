@@ -1,8 +1,15 @@
-const Home = () => {
-  return <h1>This is index page!</h1>;
+import { Header } from '../components/Header';
+
+const IndexPage = () => {
+  return (
+    <>
+      <Header>友達一覧</Header>
+      <h1>This is index page!</h1>
+    </>
+  );
 };
 
-export default Home;
+export default IndexPage;
 
 // import Head from 'next/head';
 // import Image from 'next/image';
