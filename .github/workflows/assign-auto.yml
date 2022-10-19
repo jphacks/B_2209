@@ -24,7 +24,7 @@ jobs:
           fi
       - name: Set reviewers
         env:
-          REVIEWERS: 'Gyuchan3, haruponponpopon, kumanotani, Mei1215' # edit here
+          REVIEWERS: "Gyuchan3, haruponponpopon, kumanotani, Mei1215" # edit here
         run: |
           reviewer_count=$(cat ${{ github.event_path }} | jq '.pull_request.requested_reviewers | length')
           if [[ 0 == $reviewer_count ]]; then
