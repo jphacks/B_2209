@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { Menu } from './Menu';
+import { css } from '@emotion/react';
 
 export const Layout = ({ children }) => {
   return (
@@ -12,6 +13,7 @@ export const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>{children}</main>
+      <div css={cssMargin} />
       <Menu />
     </>
   );
@@ -20,3 +22,7 @@ export const Layout = ({ children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+const cssMargin = css`
+  margin-top: 56px; // ボトムナビゲーションの高さ
+`;
