@@ -157,3 +157,6 @@ dist
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# db
+prisma/migrations/
