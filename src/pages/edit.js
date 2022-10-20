@@ -8,13 +8,21 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 
 const EditPage = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get('user_name'),
-      text: data.get('text'),
-    });
+    try {
+      const data = new FormData(event.currentTarget);
+      const account = data.get('user_name');
+      const icon = data.get('text');
+      const body = { account, icon };
+      await fetch(`/api/post`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const [preview, setPreview] = useState('');
@@ -33,7 +41,6 @@ const EditPage = () => {
   };
 
   return (
-
     <div>
       <Header>表示内容の編集</Header>
       <Container component="main" maxWidth="xs">
