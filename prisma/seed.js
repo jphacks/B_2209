@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const userData = [
   {
     name: 'Alice',
-    email: 'alice@prisma.io',
+    account: '@prisma',
     icon: 'pic1.jpg',
     posts: {
       create: [
@@ -18,7 +18,7 @@ const userData = [
   },
   {
     name: 'Nilu',
-    email: 'nilu@prisma.io',
+    account: '@abc',
     icon: 'pic2.jpg',
     posts: {
       create: [
@@ -31,7 +31,7 @@ const userData = [
   },
   {
     name: 'Mahmoud',
-    email: 'mahmoud@prisma.io',
+    account: '@cde',
     icon: 'pic3.jpg',
     posts: {
       create: [
