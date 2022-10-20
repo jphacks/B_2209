@@ -1,5 +1,5 @@
 import { Header } from '../components/Header';
-
+import prisma from '../../lib/prisma';
 const IndexPage = () => {
   return (
     <>
@@ -10,6 +10,17 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+/*
+//登録番号3番の人のarの文字列と画像ファイルを取ってくる
+async function get_ar_num() {
+  const ar_num = await prisma.post.findMany({
+    where: { authorId: 3 },
+  });
+  console.log(ar_num);
+}
+
+get_ar_num();
+*/
 
 // import Head from 'next/head';
 // import Image from 'next/image';
