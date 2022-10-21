@@ -1,1 +1,1 @@
-export let buffer = {};
+var readId = -1;

@@ -6,9 +6,10 @@ import Container from '@mui/material/Container';
 import { Header } from '../components/Header';
 import { useState } from 'react';
 import { css } from '@emotion/react';
-import buffer from '../../public/buffer.js';
-
-//console.log(buffer.id);
+// import buffer from '../../public/buffer.js';
+// import readId from '../../public/myfile.js';
+// ここを読み込もうとするとエラーが出る
+// console.log('readId=' + readId);
 
 const EditPage = () => {
   const handleSubmit = async (event) => {
