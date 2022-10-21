@@ -43,37 +43,37 @@ const markerList = [
   {
     key: 1,
     user: 'ユーザー1',
-    image: '/ARMarker/letterA.png',
+    image: '/ARmarker/letterA.png',
   },
   {
     key: 2,
     user: 'ユーザー2',
-    image: '/ARMarker/letterB.png',
+    image: '/ARmarker/letterB.png',
   },
   {
     key: 3,
     user: 'ユーザー3',
-    image: '/ARMarker/letterC.png',
+    image: '/ARmarker/letterC.png',
   },
   {
     key: 4,
     user: 'ユーザー4',
-    image: '/ARMarker/letterD.png',
+    image: '/ARmarker/letterD.png',
   },
   {
     key: 5,
     user: 'ユーザー5',
-    image: '/ARMarker/letterF.png',
+    image: '/ARmarker/letterF.png',
   },
   {
     key: 6,
     user: 'ユーザー6',
-    image: '/ARMarker/kanji.png',
+    image: '/ARmarker/kanji.png',
   },
   {
     key: 7,
     user: 'ユーザー7',
-    image: '/ARMarker/hiro.png',
+    image: '/ARmarker/hiro.png',
   },
 ];
 
