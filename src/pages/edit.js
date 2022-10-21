@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import { Header } from '../components/Header';
 import { useState } from 'react';
 import { css } from '@emotion/react';
+import axios from 'axios';
 // import buffer from '../../public/buffer.js';
 // import { readId } from './../../public/myfile.js';
 // ここを読み込もうとするとエラーが出る
@@ -14,8 +15,9 @@ import { css } from '@emotion/react';
 const EditPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const data = new FormData(event.currentTarget);
+
     try {
-      const data = new FormData(event.currentTarget);
       const account = data.get('user_name');
       const icon = data.get('text');
       const body = { account, icon };
@@ -23,6 +25,18 @@ const EditPage = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    try {
+      // console.log(data.get('file'));
+      const file = data.get('file');
+      const formData = new FormData();
+      formData.append('file', file);
+      console.log(...formData.entries());
+      await axios.post('http://localhost:3000/api/upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
     } catch (error) {
       console.error(error);
@@ -64,6 +78,7 @@ const EditPage = () => {
             noValidate
             autoComplete="off"
             sx={{ mt: 1 }}
+            encType="multipart/form-data"
           >
             <TextField
               margin="normal"
@@ -88,7 +103,7 @@ const EditPage = () => {
               画像をアップロード
               <input
                 type="file"
-                name="image"
+                name="file"
                 accept="image/jpeg"
                 onChange={handleChangeFile}
                 required
