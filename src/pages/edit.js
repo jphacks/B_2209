@@ -6,6 +6,9 @@ import Container from '@mui/material/Container';
 import { Header } from '../components/Header';
 import { useState } from 'react';
 import { css } from '@emotion/react';
+import buffer from '../../public/buffer.js';
+
+//console.log(buffer.id);
 
 const EditPage = () => {
   const handleSubmit = async (event) => {
