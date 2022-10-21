@@ -5,7 +5,6 @@ import Script from 'next/script';
 const IndexPage = (props) => {
   async function get_ar() {
     try {
-      const id = 1; //今はidが1の人のデータを取得するようにコードを書いています。ここの数字を変えてください。
       const result = await fetch(`/api/get`, {
         method: 'GET',
       });
