@@ -13,7 +13,7 @@ export const Menu = () => {
   const [value, setValue] = React.useState(router.pathname.slice(1));
   React.useEffect(() => {
     router.prefetch('/');
-    router.prefetch('/camera');
+    router.prefetch('/myfile.html');
     router.prefetch('/ARmarker');
     router.prefetch('/edit');
   }, []);
@@ -38,7 +38,7 @@ export const Menu = () => {
           />
           <BottomNavigationAction
             label="読み取り"
-            value="camera"
+            value="myfile.html"
             icon={<PhotoCameraIcon />}
           />
           <BottomNavigationAction
