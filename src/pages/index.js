@@ -3,6 +3,18 @@ import HEAD from 'next/head';
 import Script from 'next/script';
 // import prisma from '../../lib/prisma';
 const IndexPage = (props) => {
+  async function get_ar() {
+    try {
+      const result = await fetch(`/api/get`, {
+        method: 'GET',
+      });
+      const data = await result.json();
+      console.log(data); //dataの中身を見てください(ブラウザのdeveloperのconsoleに表示)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  get_ar();
   return (
     <div>
       <HEAD>
