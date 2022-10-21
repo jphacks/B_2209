@@ -28,7 +28,9 @@
   Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
 -->
 
-<script>
+<script type="module">
+//import buffer from './buffer.js';
+
 
 var scene, camera, renderer, clock, deltaTime, totalTime;
 
@@ -135,7 +137,8 @@ function initialize()
 
 		markerControlsarray[markerControlsarray.length - 1].addEventListener("markerFound", () => {
 			readId = i+1;
-      console.log("marker"+readId+" is visible");
+			//buffer.id = readId;
+      		console.log("marker"+readId+" is visible");
 
 		});
 
@@ -148,63 +151,33 @@ function initialize()
 		);
 		mesh.position.y = 1.25/2;
 		markerRoot.add( mesh );
+		const fontLoader = new THREE.FontLoader();
+		fontLoader.load('font/Digitalism_Regular.json', function(font) {
+			console.log("loaded font!!");
+			const textGeometry = new THREE.TextBufferGeometry("sample", {
+				font: font,
+				size: 0.2,
+				height: 0.04,
+				// curveSegments: 12,
+				// bevelEnabled: true,
+				// bevelThickness: 0.03,
+				// bevelSize: 0.02,
+				// bevelOffset: 0,
+				// bevelSegments: 5,
+			  });
+			  textGeometry.center();
+			const textMesh = new THREE.Mesh(textGeometry, new THREE.MeshNormalMaterial());
+			textMesh.castShadow = true
+			textMesh.position.set(0, 0.75, 0);
+			// text.position.z = 1
+			markerRoot.add( textMesh );
+		});
 	}
 
 	//構造の予定：
 	//全部のマーカーのmarkercontrolsを動かす
 	//表示されたマーカーからそれに対応するARを表示して、配列番号をidとする
 	//idからデータベースを用いて文章を取り込む
-
-
-	//１つめ
-	//let markerRoot0 = new THREE.Group();//ここはfor文内で同じものを用いても大丈夫
-	//scene.add(markerRoot0);
-	//let markerControls0 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot0, {
-	//	type : 'pattern', patternUrl : "data/" + patternArray[0] + ".patt",
-	//});
-	//markerControlsarray.push(new THREEx.ArMarkerControls(arToolkitContext, markerRoot0, {
-	//	type : 'pattern', patternUrl : "data/" + patternArray[0] + ".patt",
-	//}));
-
-	//markerControlsarray[markerControlsarray.length - 1].addEventListener("markerFound", () => {
-		// マーカーが見つかっている時は毎秒呼ばれる
-		//うまくいかなかった、、for文が一瞬だからすぐ捨てられるのが原因？
-	//	console.log("marker0 is visible");
-	//});
-
-	/*
-	let mesh0 = new THREE.Mesh(
-		new THREE.CubeGeometry(1.25,1.25,1.25),
-		new THREE.MeshBasicMaterial({color:colorArray[0], map:texture, transparent:true, opacity:0.5})
-	);
-
-	mesh0.position.y = 1.25/2;
-	//作った正方形を表示するものリストの追加
-	markerRoot0.add( mesh0 );
-
-	//二つ目
-	let markerRoot1 = new THREE.Group();
-	scene.add(markerRoot1);
-	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
-		type : 'pattern', patternUrl : "data/" + patternArray[1] + ".patt",
-	});
-
-	markerControls1.addEventListener("markerFound", () => {
-		// マーカーが見つかっている時は毎秒呼ばれる
-		//うまくいかなかった、、for文が一瞬だからすぐ捨てられるのが原因？
-		console.log("marker1 is visible");
-	});
-
-
-	let mesh1 = new THREE.Mesh(
-		new THREE.CubeGeometry(1.25,1.25,1.25),
-		new THREE.MeshBasicMaterial({color:colorArray[1], map:texture, transparent:true, opacity:0.5})
-	);
-
-	mesh1.position.y = 1.25/2;
-	//作った正方形を表示するものリストの追加
-	markerRoot0.add( mesh1 );
-	*/
 
 }
 
