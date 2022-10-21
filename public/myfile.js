@@ -1,8 +1,6 @@
-// let readId = -1;
+let readId = -1;
 exports = readId;
-<script src="js/three.js"></script>;
-//import readId from 'myfile.js'
-// import dynamic from 'next/dynamic';
+//import readId from '正しいパスでかくmyfile.js'
 var scene, camera, renderer, clock, deltaTime, totalTime;
 
 var arToolkitSource, arToolkitContext;

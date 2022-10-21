@@ -1,3 +1,4 @@
+// 今は使ってなくてmyfile.htmlに移動
 import { Header } from '../components/Header';
 import HEAD from 'next/head';
 import Script from 'next/script';
