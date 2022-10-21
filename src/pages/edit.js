@@ -14,19 +14,19 @@ import { css } from '@emotion/react';
 const EditPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const data = new FormData(event.currentTarget);
-      const account = data.get('user_name');
-      const icon = data.get('text');
-      const body = { account, icon };
-      await fetch(`/api/post`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   const data = new FormData(event.currentTarget);
+    //   const account = data.get('user_name');
+    //   const icon = data.get('text');
+    //   const body = { account, icon };
+    //   await fetch(`/api/post`, {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(body),
+    //   });
+    // } catch (error) {
+    //   console.error(error);
+    // }
     alert('保存しました');
   };
 
