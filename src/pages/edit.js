@@ -23,6 +23,7 @@ const EditPage = () => {
     } catch (error) {
       console.error(error);
     }
+    alert('保存しました');
   };
 
   const [preview, setPreview] = useState('');
