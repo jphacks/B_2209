@@ -1,7 +1,35 @@
+import * as React from 'react';
 import { Header } from '../components/Header';
 import HEAD from 'next/head';
 import Script from 'next/script';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 // import prisma from '../../lib/prisma';
+
+// TODO: 実際のデータベースに置き換える
+const dbList = [
+  { id: 3, category: 'text', content: 'nice to meet you', authorId: 3 },
+  { id: 4, category: 'image', content: 'soccer.jpg', authorId: 3 },
+];
+
+const FriendListItem = ({ account, text }) => (
+  <ListItem divider>
+    <ListItemText primary={account} secondary={text} />
+  </ListItem>
+);
+
+const FriendList = () => (
+  <>
+    <List component="div" sx={{ width: '100%', maxWidth: 360 }}>
+      {dbList.map((content) => (
+        <FriendListItem account={content.category} text={content.content} />
+      ))}
+    </List>
+  </>
+);
+
 const IndexPage = (props) => {
   return (
     <div>
@@ -33,9 +61,10 @@ const IndexPage = (props) => {
         ></Script>
       </HEAD>
       <Header>友達一覧</Header>
-      <h1>This is index page!</h1>
+      <FriendList />
     </div>
   );
+
   // var scene, camera, renderer, clock, deltaTime, totalTime;
 
   // var arToolkitSource, arToolkitContext;
