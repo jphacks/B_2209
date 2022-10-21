@@ -93,9 +93,19 @@ function initialize() {
     'kanji',
     'hiro',
   ];
+  let textArray = [
+    'book',
+    'AtCoder',
+    'surfing',
+    'karaoke',
+    'tennis',
+    'violin',
+    'baseball',
+  ];
   let colorArray = [
     0xff0000, 0xff8800, 0xffff00, 0x00cc00, 0x0000ff, 0xcc00ff, 0xcccccc,
   ];
+
   //markerControlsを配列の要素として取り扱う
   let markerControlsarray = new Array();
   //   let readId = -1;
@@ -122,22 +132,21 @@ function initialize() {
         console.log('marker' + readId + ' is visible');
       }
     );
-
-    let mesh = new THREE.Mesh(
-      new THREE.CubeGeometry(1.25, 1.25, 1.25),
-      new THREE.MeshBasicMaterial({
-        color: colorArray[i],
-        map: texture,
-        transparent: true,
-        opacity: 0.5,
-      })
+    let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
+    let loder = new THREE.TextureLoader();
+    let texture = loader.load(
+      './ARdisplay/' + patternArray[i] + '.png',
+      render
     );
+    let material1 = new THREE.MeshBasicMaterial({ map: texture });
+
+    let mesh = new THREE.Mesh(geometry1, material1);
     mesh.position.y = 1.25 / 2;
     markerRoot.add(mesh);
     const fontLoader = new THREE.FontLoader();
     fontLoader.load('font/Digitalism_Regular.json', function (font) {
       console.log('loaded font!!');
-      const textGeometry = new THREE.TextBufferGeometry('sample', {
+      const textGeometry = new THREE.TextBufferGeometry(textArray[i], {
         font: font,
         size: 0.2,
         height: 0.04,
