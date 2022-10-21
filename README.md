@@ -1,44 +1,7 @@
-# 自己紹介AR
-
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2022/08/JPHACKS2022_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
-
-## 製品概要
-### 背景(製品開発のきっかけ、課題等）
-### 製品説明（具体的な製品の説明）
-### 特長
-#### 1. 特長1
-#### 2. 特長2
-#### 3. 特長3
-
-### 解決出来ること
-### 今後の展望 ユーザー数に応じて同時に動作するmarkercontrolsが増えてしまい、動作が重くなってしまうのでQRコードのように事前にマーカーとidの対応を教えることなくAR表示できることを目指す。
-### 注力したこと（こだわり等）HTMLファイルでのimportをNode.jsのjavascriptがメインとなる環境でも反映させることが大変だった。また、ARマーカーからidを読み取れり、好きな画像と文字をAR表示できるようにしたことに注力した
-* 
-* 
-
-## 開発技術
-### 活用した技術
-#### API・データ
-* 
-* 
-
-#### フレームワーク・ライブラリ・モジュール
-* Three.js artoolkit
-*  jsartoolkit
-*  threex.artoolkit
-*  Next.js
-*  Prisma
-
-#### デバイス
-* NOKIA 5G超高速無線ブロードバンドFastMile
-* 
-
-### 独自技術
-#### ハッカソンで開発した独自機能・技術
-* ARマーカーからユーザIDを取り出し、引き渡すことで任意の画像と文章をAR表示できるようにしたこと。独自で開発したものの内容をこちらに記載してください
-
-* myfile.html特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
-
-#### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
-* 
-* 
+# 実行方法
+```
+$git clone -b another https://github.com/jphacks/B_2209
+$$cd B_2209
+$npm upgrade
+$npm run dev
+```
