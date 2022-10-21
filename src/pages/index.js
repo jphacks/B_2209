@@ -32,7 +32,7 @@ const IndexPage = (props) => {
           src="threex/threex-armarkercontrols.js"
         ></Script>
       </HEAD>
-      <p id="demo"></p>
+
       <Header>友達一覧</Header>
       <h1>This is index page!</h1>
     </div>
