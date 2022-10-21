@@ -36,9 +36,24 @@ const CameraPage = () => {
 
       <Header>ARマーカーの読み取り</Header>
       <h1>This is camera page!</h1>
+ 
     </>
   );
 };
+
+
+
+export default function Home() {
+  return (
+    <>
+      <Script src="./cube_and_string.js" />
+    </>
+  )
+}
+
+
+
+
 
 // var scene, camera, renderer, clock, deltaTime, totalTime;
 
@@ -247,4 +262,4 @@ const CameraPage = () => {
 //   render();
 // }
 
-export default CameraPage;
+// export default CameraPage;
