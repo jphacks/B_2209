@@ -20,7 +20,7 @@ const EditPage = () => {
     try {
       const account = data.get('user_name');
       const icon = data.get('text');
-      const name = `/uploads/${FileName}`;
+      const name = `/uploads/${fileName}`;
       const body = { account, icon, name };
       await fetch(`/api/post`, {
         method: 'POST',
@@ -36,6 +36,7 @@ const EditPage = () => {
       const formData = new FormData();
       formData.append('file', file);
       console.log(...formData.entries());
+      console.log(fileName);
       await axios.post('http://localhost:3000/api/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -46,7 +47,7 @@ const EditPage = () => {
   };
 
   const [preview, setPreview] = useState('');
-  const [FileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState('');
 
   const handleChangeFile = (event) => {
     if (event.target.files === null || event.target.files.length === 0) {
@@ -111,7 +112,7 @@ const EditPage = () => {
                 hidden
               />
             </Button>
-            <p>{FileName}</p>
+            <p>{fileName}</p>
             <img src={preview} css={cssImage} />
             <Button
               type="submit"
