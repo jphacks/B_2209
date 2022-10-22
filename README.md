@@ -28,15 +28,18 @@
 ### 解決出来ること
 - 今日出会った人を記録しておくことができ、忘れることを防ぎます
 - 初対面で緊張していても、ARで表示した画像や文字によって、会話が弾みます
+
 ### 今後の展望 
 - ログイン機能の実装
 - ユーザ数が増えた時の対応
+
 ### 注力したこと（こだわり等）
 * ARマーカーから個人のidを読み取る
 * 読み取ったidからそのidの人が登録した画像を表示できること
 * 好きな画像と文字をARで表示できること
 * 読み取ったARのidをDBに保存すること
-* 実際に別デバイスにサーバーを立てたこと
+* 実際に別デバイス (FastMile) にサーバーを立てたこと
+* 編集画面で入力したデータをデータベースに登録し、一覧で表示できること
 
 ## 開発技術
 ### 活用した技術
@@ -45,13 +48,40 @@
 * 5G超高速無線ブロードバンドFastMile  (NOKIA様提供)
 
 #### フレームワーク・ライブラリ・モジュール
+フレームワーク
+* Next.js
+
+ライブラリ
 * Three.js artoolkit
-*  jsartoolkit
-*  threex.artoolkit
-*  Next.js
-*  Prisma
+* jsartoolkit
+* threex.artoolkit
+* Prisma
+* Emotion
+* MUI
+* Axios
+  
+ミドルウェア
+* Multer
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
 * ARマーカーからユーザIDを取り出し、引き渡すことで任意の画像と文章をAR表示できるようにしたこと。[myfile.html](https://github.com/jphacks/B_2209/blob/develop/public/myfile.html)
 
+## 実行方法
+事前にNode.js (npm) をインストールしてください。
+
+```
+# clone する
+$ git clone https://github.com/jphacks/B_2209
+# ディレクトリ移動
+$ cd B_2209
+# next のinstall
+$ npm upgrade
+# ライブラリinstall
+$npm ci
+# db作成
+$ npx prisma migrate dev --name init
+# サーバー立ち上げ
+$ npm run dev
+```
+http://localhost:3000 にアクセスするとアプリが表示されます。
