@@ -144,7 +144,7 @@ function initialize() {
     mesh.position.y = 1.25 / 2;
     markerRoot.add(mesh);
     const fontLoader = new THREE.FontLoader();
-    fontLoader.load('font/Digitalism_Regular.json', function (font) {
+    fontLoader.load('font/M PLUS 1p Medium_Regular.json', function (font) {
       console.log('loaded font!!');
       const textGeometry = new THREE.TextBufferGeometry(textArray[i], {
         font: font,
