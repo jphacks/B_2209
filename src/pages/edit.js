@@ -20,7 +20,8 @@ const EditPage = () => {
     try {
       const account = data.get('user_name');
       const icon = data.get('text');
-      const body = { account, icon };
+      const name = `/uploads/${FileName}`;
+      const body = { account, icon, name };
       await fetch(`/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -104,7 +105,7 @@ const EditPage = () => {
               <input
                 type="file"
                 name="file"
-                accept="image/jpeg"
+                accept="image/jpeg image/png"
                 onChange={handleChangeFile}
                 required
                 hidden
