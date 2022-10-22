@@ -35,8 +35,7 @@ const EditPage = () => {
       const file = data.get('file');
       const formData = new FormData();
       formData.append('file', file);
-      console.log(...formData.entries());
-      console.log(fileName);
+      // console.log(...formData.entries());
       await axios.post('http://localhost:3000/api/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -77,7 +76,6 @@ const EditPage = () => {
           <Box
             component="form"
             onSubmit={handleSubmit}
-            noValidate
             autoComplete="off"
             sx={{ mt: 1 }}
             encType="multipart/form-data"
@@ -102,15 +100,15 @@ const EditPage = () => {
               multiline
             />
             <Button variant="outlined" component="label">
-              画像をアップロード
               <input
                 type="file"
                 name="file"
                 accept="image/jpeg image/png"
                 onChange={handleChangeFile}
                 required
-                hidden
+                css={cssUploadButton}
               />
+              画像をアップロード
             </Button>
             <p>{fileName}</p>
             <img src={preview} css={cssImage} />
@@ -128,6 +126,12 @@ const EditPage = () => {
     </div>
   );
 };
+
+const cssUploadButton = css`
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+`;
 
 const cssImage = css`
   max-width: 100%;
