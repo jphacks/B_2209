@@ -6,6 +6,8 @@ import Script from 'next/script';
 import Container from '@mui/material/Container';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import { css } from '@emotion/react';
 
@@ -54,8 +56,11 @@ const IndexPage = (props) => {
   //   },
   // ];
 
-  const FriendListItem = ({ account, text }) => (
-    <ListItem divider>
+  const FriendListItem = ({ account, text, icon }) => (
+    <ListItem divider alignItems="flex-start">
+      <ListItemAvatar>
+        <Avatar alt={account} src={icon} />
+      </ListItemAvatar>
       <ListItemText primary={account} secondary={text} />
     </ListItem>
   );
@@ -64,7 +69,7 @@ const IndexPage = (props) => {
     <>
       <List component="div" sx={{ width: '100%' }}>
         {users.map((user) => (
-          <FriendListItem account={user.account} text={user.icon} />
+          <FriendListItem account={user.account} text={user.icon} icon={user.name} />
         ))}
       </List>
     </>
