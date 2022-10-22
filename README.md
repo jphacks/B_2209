@@ -1,5 +1,5 @@
-# 自己紹介AR
-
+# 自己紹介 de AR
+じこしょうかい で あーる
 <img width="1280" alt="スクリーンショット 2022-10-21 17 13 34" src="https://user-images.githubusercontent.com/72332745/197305170-9ae28c2b-c5f5-4aad-87cc-e55cdcb3ca43.png">
 
 ## 製品概要
@@ -31,7 +31,10 @@
 - ARによる豊かな印象的表現により、人と話題が強固に結びつきやすくなります
 ### 今後の展望 
 - ログイン機能の実装
+  - 自己紹介を受けた相手リストの実装
 - ユーザ数が増えた時の対応
+- 人物の位置に合わせたARの表示
+
 ### 注力したこと（こだわり等）
 * 安定性及び視覚的楽しさを優先し、QRマーカーではなくARマーカーを採用
 * 個人のidのARマーカーへの埋め込み
@@ -39,7 +42,8 @@
 * 好きな画像と文字をARで表示できる
 * ARならではの立体感を意識したARデザイン
 * 読み取ったARのidをDBで管理
-* 実際に別デバイスにサーバーを立てて検証
+* 実際に別デバイス (FastMile)にサーバーを立てて検証
+* 編集画面で入力したデータをデータベースに登録し、一覧で表示できる
 
 ## 開発技術
 ### 活用した技術
@@ -48,13 +52,40 @@
 * 5G超高速無線ブロードバンドFastMile  (NOKIA様提供)
 
 #### フレームワーク・ライブラリ・モジュール
+フレームワーク
+* Next.js
+
+ライブラリ
 * Three.js artoolkit
-*  jsartoolkit
-*  threex.artoolkit
-*  Next.js
-*  Prisma
+* jsartoolkit
+* threex.artoolkit
+* Prisma
+* Emotion
+* MUI
+* Axios
+  
+ミドルウェア
+* Multer
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
 * ARマーカーからユーザIDを取り出し、引き渡すことで任意の画像と文章をAR表示できるようにしたこと。[myfile.html](https://github.com/jphacks/B_2209/blob/develop/public/myfile.html)
 
+## 実行方法
+事前にNode.js (npm) をインストールしてください。
+
+```
+# clone する
+$ git clone https://github.com/jphacks/B_2209
+# ディレクトリ移動
+$ cd B_2209
+# next のinstall
+$ npm upgrade
+# ライブラリinstall
+$npm ci
+# db作成
+$ npx prisma migrate dev --name init
+# サーバー立ち上げ
+$ npm run dev
+```
+http://localhost:3000 にアクセスするとアプリが表示されます。
