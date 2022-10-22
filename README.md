@@ -79,7 +79,8 @@
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* ARマーカーからユーザIDを取り出し、引き渡すことで任意の画像と文章をAR表示できるようにしたこと。[myfile.html](https://github.com/jphacks/B_2209/blob/develop/public/myfile.html)
+* スマホから画像・文章をアップロードし、idと結びつけてAR表示
+* ARマーカーからユーザIDを取り出す [myfile.html](https://github.com/jphacks/B_2209/blob/develop/public/myfile.html)
 
 ## 実行方法
 事前にNode.js (npm) をインストールしてください。
@@ -92,7 +93,7 @@ $ cd B_2209
 # next のinstall
 $ npm upgrade
 # ライブラリinstall
-$npm ci
+$　　npm ci
 # db作成
 $ npx prisma migrate dev --name init
 # サーバー立ち上げ
