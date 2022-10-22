@@ -10,7 +10,7 @@ datasource db {
 model User {
   id    Int     @id @default(autoincrement())
   account String  @unique
-  name  String?
+  text String
   icon String
   posts Post[]
 }

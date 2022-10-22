@@ -133,7 +133,7 @@ function initialize() {
       }
     );
     let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
-    let loder = new THREE.TextureLoader();
+    // let loder = new THREE.TextureLoader();
     let texture = loader.load(
       './ARdisplay/' + patternArray[i] + '.png',
       render

@@ -19,9 +19,9 @@ const EditPage = () => {
 
     try {
       const account = data.get('user_name');
-      const icon = data.get('text');
-      const name = `/uploads/${FileName}`;
-      const body = { account, icon, name };
+      const text = data.get('text');
+      const icon = `/uploads/${FileName}`;
+      const body = { account, text, icon };
       await fetch(`/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -31,11 +31,10 @@ const EditPage = () => {
       console.error(error);
     }
     try {
-      // console.log(data.get('file'));
       const file = data.get('file');
       const formData = new FormData();
       formData.append('file', file);
-      console.log(...formData.entries());
+      // console.log(...formData.entries());
       await axios.post('http://localhost:3000/api/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
