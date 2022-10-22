@@ -1,11 +1,11 @@
 # 自己紹介 de AR（じこしょうかい で あーる）
 
-[デモ動画 (Google Drive) ](https://drive.google.com/file/d/1TyIxKmXAFAUnPMtGVx_SGGMyNe3xS7Ea/view?usp=sharing)  
-
 <img width="800" alt="サムネイル" src="https://user-images.githubusercontent.com/72190893/197318598-5fd3f9b5-3f76-420e-a8e7-1ba9a0e9abe8.png">
 
 ## デモ動画
 https://user-images.githubusercontent.com/72332745/197328320-20f7a33c-40cc-40ae-85ac-26a33357dce4.MOV
+
+[デモ動画 (Google Drive) ](https://drive.google.com/file/d/1TyIxKmXAFAUnPMtGVx_SGGMyNe3xS7Ea/view?usp=sharing) 
 
 ## 製品概要
 ### 背景（製品開発のきっかけ、課題等）
@@ -96,10 +96,18 @@ $ cd B_2209
 # next のinstall
 $ npm upgrade
 # ライブラリinstall
-$　　npm ci
+$ npm ci
 # db作成
 $ npx prisma migrate dev --name init
 # サーバー立ち上げ
 $ npm run dev
 ```
 http://localhost:3000 にアクセスするとアプリが表示されます。
+
+### データベースのリフレッシュ
+以下を実行してください。
+```
+$ rm -R prisma/migrations/ prisma/dev.db
+$ npx prisma migrate dev --name init
+$ npm run dev
+```

@@ -45,7 +45,7 @@ const EditPage = () => {
   };
 
   const [preview, setPreview] = useState('');
-  const [FileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState('');
 
   const handleChangeFile = (event) => {
     if (event.target.files === null || event.target.files.length === 0) {
@@ -75,7 +75,6 @@ const EditPage = () => {
           <Box
             component="form"
             onSubmit={handleSubmit}
-            noValidate
             autoComplete="off"
             sx={{ mt: 1 }}
             encType="multipart/form-data"
@@ -100,17 +99,17 @@ const EditPage = () => {
               multiline
             />
             <Button variant="outlined" component="label">
-              画像をアップロード
               <input
                 type="file"
                 name="file"
                 accept="image/jpeg image/png"
                 onChange={handleChangeFile}
                 required
-                hidden
+                css={cssUploadButton}
               />
+              画像をアップロード
             </Button>
-            <p>{FileName}</p>
+            <p>{fileName}</p>
             <img src={preview} css={cssImage} />
             <Button
               type="submit"
@@ -126,6 +125,12 @@ const EditPage = () => {
     </div>
   );
 };
+
+const cssUploadButton = css`
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+`;
 
 const cssImage = css`
   max-width: 100%;
