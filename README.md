@@ -1,5 +1,5 @@
-# 自己紹介AR
-
+# 自己紹介 de AR
+じこしょうかい で あーる
 <img width="1280" alt="スクリーンショット 2022-10-21 17 13 34" src="https://user-images.githubusercontent.com/72332745/197305170-9ae28c2b-c5f5-4aad-87cc-e55cdcb3ca43.png">
 
 ## 製品概要
