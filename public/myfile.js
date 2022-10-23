@@ -156,18 +156,22 @@ function initialize() {
     async function get_ar(id) {
       try {
         console.log(id);
-        const result = await fetch(`/api/ar/image/get/${id}`, {
+        const imageResult = await fetch(`/api/ar/image/get/${id}`, {
           method: 'GET',
         });
-        const data = await result.json();
-        return data[0];
+        const textResult = await fetch(`/api/ar/text/get/${id}`, {
+          method: 'GET',
+        });
+        const image = await imageResult.json();
+        const text = await textResult.json();
+        return { image: image[0], text: text[0] };
       } catch (error) {
         console.error(error);
       }
     }
     get_ar(readId).then((value) => {
       if (value) {
-        let imageUrl = value.content;
+        let imageUrl = value.image.content;
         let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
         // let loder = new THREE.TextureLoader();
         let texture = loader.load(
@@ -183,17 +187,20 @@ function initialize() {
         const fontLoader = new THREE.FontLoader();
         fontLoader.load('font/M PLUS 1p Medium_Regular.json', function (font) {
           console.log('loaded font!!');
-          const textGeometry = new THREE.TextBufferGeometry(textArray[i], {
-            font: font,
-            size: 0.2,
-            height: 0.04,
-            // curveSegments: 12,
-            // bevelEnabled: true,
-            // bevelThickness: 0.03,
-            // bevelSize: 0.02,
-            // bevelOffset: 0,
-            // bevelSegments: 5,
-          });
+          const textGeometry = new THREE.TextBufferGeometry(
+            value.text.content,
+            {
+              font: font,
+              size: 0.2,
+              height: 0.04,
+              // curveSegments: 12,
+              // bevelEnabled: true,
+              // bevelThickness: 0.03,
+              // bevelSize: 0.02,
+              // bevelOffset: 0,
+              // bevelSegments: 5,
+            }
+          );
           textGeometry.center();
           const textMesh = new THREE.Mesh(
             textGeometry,
