@@ -4,18 +4,18 @@ import prisma from '../../../lib/prisma';
 // Required fields in body: userName, text, fileName
 // Optional fields in body: content
 export default async function handle(req, res) {
-  const { account, icon, name } = req.body;
-  console.log('account:', account, 'icon:', icon, 'name:', name);
+  const { account, text, icon } = req.body;
+  console.log('account:', account, 'text:', text, 'icon:', icon);
   const result = await prisma.user.create({
     data: {
       account: account,
-      name: name,
+      text: text,
       icon: icon,
       posts: {
         create: [
           {
             category: 'image',
-            content: name,
+            content: icon,
           },
         ],
       },

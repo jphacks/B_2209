@@ -19,9 +19,9 @@ const EditPage = () => {
 
     try {
       const account = data.get('user_name');
-      const icon = data.get('text');
-      const name = `/uploads/${fileName}`;
-      const body = { account, icon, name };
+      const text = data.get('text');
+      const icon = `/uploads/${fileName}`;
+      const body = { account, text, icon };
       await fetch(`/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -31,7 +31,6 @@ const EditPage = () => {
       console.error(error);
     }
     try {
-      // console.log(data.get('file'));
       const file = data.get('file');
       const formData = new FormData();
       formData.append('file', file);

@@ -44,15 +44,15 @@ const IndexPage = (props) => {
   //     id: 1,
   //     key: 1,
   //     account: 'あいうえお',
-  //     name: 'hoge',
-  //     icon: 'よろしくお願いします！',
+  //     icon: 'hoge',
+  //     text: 'よろしくお願いします！',
   //   },
   //   {
   //     id: 2,
   //     key: 2,
   //     account: 'かきくけこ',
-  //     name: 'hoge',
-  //     icon: 'やっほー！趣味は読書だよ',
+  //     icon: 'hoge',
+  //     text: 'やっほー！趣味は読書だよ',
   //   },
   // ];
 
@@ -69,7 +69,7 @@ const IndexPage = (props) => {
     <>
       <List component="div" sx={{ width: '100%' }}>
         {users.map((user) => (
-          <FriendListItem account={user.account} text={user.icon} icon={user.name} />
+          <FriendListItem account={user.account} text={user.text} icon={user.icon} />
         ))}
       </List>
     </>
