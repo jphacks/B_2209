@@ -130,6 +130,23 @@ function initialize() {
         //buffer.id = readId;
 
         console.log('marker' + readId + ' is visible');
+        async function get_ar(id) {
+          try {
+            console.log(id);
+            const result = await fetch(`/api/ar/get/${id}`, {
+              method: 'GET',
+            });
+            const data = await result.json();
+            return data[0];
+          } catch (error) {
+            console.error(error);
+          }
+        }
+
+        get_ar(readId).then((value) => {
+          console.log(value);
+          console.log(value.content);
+        });
       }
     );
     let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
