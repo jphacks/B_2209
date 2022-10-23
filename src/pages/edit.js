@@ -20,7 +20,7 @@ const EditPage = () => {
     try {
       const account = data.get('user_name');
       const text = data.get('text');
-      const icon = `/uploads/${FileName}`;
+      const icon = `/uploads/${fileName}`;
       const body = { account, text, icon };
       await fetch(`/api/post`, {
         method: 'POST',
