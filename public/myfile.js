@@ -133,7 +133,7 @@ function initialize() {
         async function get_ar(id) {
           try {
             console.log(id);
-            const result = await fetch(`/api/ar/get/${id}`, {
+            const result = await fetch(`/api/ar/image/get/${id}`, {
               method: 'GET',
             });
             const data = await result.json();

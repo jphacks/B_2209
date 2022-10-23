@@ -3,7 +3,7 @@ export default function Home() {
   async function get_ar() {
     try {
       const id = 1; //今はidが1の人のデータを取得するようにコードを書いています。ここの数字を変えてください。
-      const result = await fetch(`/api/ar/get/${id}`, {
+      const result = await fetch(`/api/ar/image/get/${id}`, {
         method: 'GET',
       });
       const data = await result.json();
