@@ -132,7 +132,8 @@ function initialize() {
         console.log('marker' + readId + ' is visible');
         async function get_ar(id) {
           try {
-            const result = await fetch(`/api/get/${id}`, {
+            console.log(id);
+            const result = await fetch(`/api/ar/image/get/${id}`, {
               method: 'GET',
             });
             const data = await result.json();
@@ -144,7 +145,7 @@ function initialize() {
 
         get_ar(readId).then((value) => {
           console.log(value);
-          console.log(value.icon);
+          console.log(value.content);
         });
       }
     );

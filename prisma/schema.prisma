@@ -9,16 +9,24 @@ datasource db {
 
 model User {
   id    Int     @id @default(autoincrement())
-  account String  @unique
+  account String
   text String
   icon String
-  posts Post[]
+  ar Ar[]
+  friend Friend[]
 }
 
-model Post {
+model Ar {
   id        Int      @id @default(autoincrement())
   category     String?
   content   String?
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  owner    User?    @relation(fields: [ownerId], references: [id])
+  ownerId  Int?
+}
+
+model Friend {
+  id        Int      @id @default(autoincrement())
+  owner    User?    @relation(fields: [ownerId], references: [id])
+  ownerId  Int?
+  friendId Int?
 }

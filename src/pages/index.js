@@ -12,24 +12,10 @@ import ListItemText from '@mui/material/ListItemText';
 import { css } from '@emotion/react';
 
 const IndexPage = (props) => {
-  // async function get_ar() {
-  //   try {
-  //     const result = await fetch(`/api/get`, {
-  //       method: 'GET',
-  //     });
-  //     const data = await result.json();
-  //     console.log('data');
-  //     console.log(data); //dataの中身を見てください(ブラウザのdeveloperのconsoleに表示)
-  //     return data;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch('/api/get', {
+      const response = await fetch('/api/user/get', {
         method: 'GET',
       });
       const data = await response.json();
@@ -69,7 +55,11 @@ const IndexPage = (props) => {
     <>
       <List component="div" sx={{ width: '100%' }}>
         {users.map((user) => (
-          <FriendListItem account={user.account} text={user.text} icon={user.icon} />
+          <FriendListItem
+            account={user.account}
+            text={user.text}
+            icon={user.icon}
+          />
         ))}
       </List>
     </>
