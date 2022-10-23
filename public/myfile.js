@@ -130,10 +130,26 @@ function initialize() {
         //buffer.id = readId;
 
         console.log('marker' + readId + ' is visible');
+        async function get_ar(id) {
+          try {
+            const result = await fetch(`/api/get/${id}`, {
+              method: 'GET',
+            });
+            const data = await result.json();
+            return data[0];
+          } catch (error) {
+            console.error(error);
+          }
+        }
+
+        get_ar(readId).then((value) => {
+          console.log(value);
+          console.log(value.icon);
+        });
       }
     );
+
     let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
-    // let loder = new THREE.TextureLoader();
     let texture = loader.load(
       './ARdisplay/' + patternArray[i] + '.png',
       render
