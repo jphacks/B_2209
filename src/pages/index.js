@@ -59,6 +59,7 @@ const IndexPage = (props) => {
             account={user.account}
             text={user.text}
             icon={user.icon}
+            key={user.id}
           />
         ))}
       </List>
