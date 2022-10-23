@@ -12,16 +12,16 @@ export default async function handle(req, res) {
       text: text,
       icon: icon,
       ar: {
-        // create: [
-        //   {
-        //     category: 'image',
-        //     content: icon,
-        //   },
-        //   {
-        //     category: 'text',
-        //     content: text,
-        //   },
-        // ],
+        create: [
+          {
+            category: 'image',
+            content: icon,
+          },
+          {
+            category: 'text',
+            content: text,
+          },
+        ],
       },
       friend: {},
     },

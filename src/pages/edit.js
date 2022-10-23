@@ -22,6 +22,7 @@ const EditPage = () => {
       const text = data.get('text');
       const icon = `/uploads/${fileName}`;
       const body = { account, text, icon };
+      //現在は、友達リストのアイコン、テキストとARマーカーのアイコン、テキストが/api/user/postに行くと同時更新されます
       await fetch(`/api/user/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
