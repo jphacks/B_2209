@@ -14,10 +14,17 @@ import axios from 'axios';
 
 const EditPage = () => {
   const handleSubmit = async (event) => {
+    let url = window.location.href;
+    let index = url.length - 1;
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     try {
+      if ('1' <= url[index] && url[index] <= '7') {
+        alert('登録済みです');
+        location.href = url;
+        return;
+      }
       const account = data.get('user_name');
       const text = data.get('text');
       const icon = `/uploads/${fileName}`;
@@ -42,7 +49,15 @@ const EditPage = () => {
     } catch (error) {
       console.error(error);
     }
-    alert('保存しました');
+    try {
+      const response = await fetch(`/api/user/count`);
+      alert('保存しました');
+      const userId = await response.json();
+      console.log(data);
+      location.href = url + '?' + String(userId);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const [preview, setPreview] = useState('');

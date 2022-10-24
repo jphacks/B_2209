@@ -19,8 +19,12 @@ export const Menu = () => {
   }, []);
 
   const handleChange = (event, newValue) => {
+    let url = window.location.href;
+    let index = url.length - 1;
     setValue(newValue);
-    router.push(`${newValue}`);
+    if ('1' <= url[index] && url[index] <= '7')
+      router.push(`${newValue}` + '?' + url[index]);
+    else router.push(`${newValue}`);
   };
 
   return (
