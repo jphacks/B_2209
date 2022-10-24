@@ -94,13 +94,13 @@ function initialize() {
     'hiro',
   ];
   let textArray = [
-    '読書',
+    'book',
     'AtCoder',
     'surfing',
-    'からおけ',
-    'テニス',
-    'バイオリン',
-    '野球',
+    'karaoke',
+    'tennis',
+    'violin',
+    'baseball',
   ];
   let colorArray = [
     0xff0000, 0xff8800, 0xffff00, 0x00cc00, 0x0000ff, 0xcc00ff, 0xcccccc,
@@ -182,8 +182,8 @@ function initialize() {
         let material1 = new THREE.MeshBasicMaterial({ map: texture });
 
         let mesh = new THREE.Mesh(geometry1, material1);
-        mesh.rotation.x = -Math.PI / 2;
-    　　　　　　　　mesh.position.y = 1;
+        mesh.position.y = 1;
+        mesh.rotation.x = -Math.PI / 3;
         markerRoot.add(mesh);
         const fontLoader = new THREE.FontLoader();
         fontLoader.load('font/M PLUS 1p Medium_Regular.json', function (font) {
@@ -209,6 +209,7 @@ function initialize() {
           );
           textMesh.castShadow = true;
           textMesh.position.set(0, 2, 0);
+          textMesh.rotation.x = -Math.PI / 3;
           // text.position.z = 1
           markerRoot.add(textMesh);
         });
