@@ -54,6 +54,17 @@ const EditPage = () => {
       alert('保存しました');
       const userId = await response.json();
       console.log(data);
+      if (userId >= 8) {
+        alert(
+          'Error!\n登録者数が上限です!\nデータベースをリフレッシュしてください'
+        );
+        alert(
+          'Error!\n登録者数が上限です!\nデータベースをリフレッシュしてください'
+        );
+        alert(
+          'Error!\n登録者数が上限です!\nデータベースをリフレッシュしてください'
+        );
+      }
       location.href = url + '?' + String(userId);
     } catch (error) {
       console.error(error);
