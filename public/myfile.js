@@ -183,7 +183,7 @@ function initialize() {
 
         let mesh = new THREE.Mesh(geometry1, material1);
         mesh.rotation.x = -Math.PI / 2;
-    　　　　　　　　mesh.position.y = 1;
+        mesh.position.y = 1;
         markerRoot.add(mesh);
         const fontLoader = new THREE.FontLoader();
         fontLoader.load('font/M PLUS 1p Medium_Regular.json', function (font) {
