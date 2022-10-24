@@ -8,7 +8,7 @@ export const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>ARプロフ</title>
+        <title>自己紹介 de AR</title>
         <meta name="description" content="自己紹介をARで表示します" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
