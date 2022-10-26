@@ -86,7 +86,7 @@ const get_ARMarker = (id) => {
     'hiro',
   ];
 
-  return `ARmarker/${patternArray[id - 1]}.png`;
+  return `ARmarker/maker${id}.png`;
 };
 
 const cssListItemButton = css`

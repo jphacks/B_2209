@@ -2145,6 +2145,11 @@
   "resolved" "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   "version" "1.2.1"
 
+"prettier@^2.3.0":
+  "integrity" "sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w=="
+  "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.3.0.tgz"
+  "version" "2.3.0"
+
 "prisma@*", "prisma@^4.5.0":
   "integrity" "sha512-9Aeg4qiKlv9Wsjz4NO8k2CzRzlvS3A4FYVJ5+28sBBZ0eEwbiVOE/Jj7v6rZC1tFW2s4GSICQOAyuOjc6WsNew=="
   "resolved" "https://registry.npmjs.org/prisma/-/prisma-4.5.0.tgz"
