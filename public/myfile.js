@@ -119,7 +119,7 @@ function initialize() {
     markerControlsarray.push(
       new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
         type: 'pattern',
-        patternUrl: 'data/' + patternArray[i] + '.patt',
+        patternUrl: `data/maker${i+1}.patt`,
       })
     );
 
@@ -129,7 +129,7 @@ function initialize() {
         readId = i + 1;
         //buffer.id = readId;
 
-        console.log('marker' + readId + ' is visible');
+        console.log(`marker ${readId} is visible`);
         async function get_ar(id) {
           try {
             console.log(id);
@@ -152,7 +152,7 @@ function initialize() {
     readId = i + 1;
     //buffer.id = readId;
 
-    console.log('marker' + readId + ' is visible');
+    console.log(`marker ${readId} is visible`);
     async function get_ar(id) {
       try {
         console.log(id);
