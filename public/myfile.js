@@ -119,43 +119,16 @@ function initialize() {
     markerControlsarray.push(
       new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
         type: 'pattern',
-        patternUrl: `data/maker${i+1}.patt`,
+        patternUrl: `data/maker${i + 1}.patt`,
       })
     );
 
-    markerControlsarray[markerControlsarray.length - 1].addEventListener(
-      'markerFound',
-      () => {
-        readId = i + 1;
-        //buffer.id = readId;
-
-        console.log(`marker ${readId} is visible`);
-        async function get_ar(id) {
-          try {
-            console.log(id);
-            const result = await fetch(`/api/ar/image/get/${id}`, {
-              method: 'GET',
-            });
-            const data = await result.json();
-            return data[0];
-          } catch (error) {
-            console.error(error);
-          }
-        }
-
-        get_ar(readId).then((value) => {
-          console.log(value);
-          console.log(value.content);
-        });
-      }
-    );
     readId = i + 1;
     //buffer.id = readId;
 
-    console.log(`marker ${readId} is visible`);
+    // console.log(`marker ${readId} is visible`);
     async function get_ar(id) {
       try {
-        console.log(id);
         const imageResult = await fetch(`/api/ar/image/get/${id}`, {
           method: 'GET',
         });
@@ -164,14 +137,16 @@ function initialize() {
         });
         const image = await imageResult.json();
         const text = await textResult.json();
-        return { image: image[0], text: text[0] };
+        return { image: image, text: text };
       } catch (error) {
         console.error(error);
       }
     }
     get_ar(readId).then((value) => {
       if (value) {
-        let imageUrl = value.image.content;
+        console.log('image' + String(i + 1), value.image);
+        console.log('text' + String(i + 1), value.text);
+        let imageUrl = value.image[0].content; //とりあえず一つ目//実装終わったらこのコメント消してください
         let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
         // let loder = new THREE.TextureLoader();
         let texture = loader.load(
@@ -189,7 +164,7 @@ function initialize() {
         fontLoader.load('font/M PLUS 1p Medium_Regular.json', function (font) {
           console.log('loaded font!!');
           const textGeometry = new THREE.TextBufferGeometry(
-            value.text.content,
+            value.text[0].content, //とりあえず一つ目//実装終わったらこのコメント消してください
             {
               font: font,
               size: 0.2,
